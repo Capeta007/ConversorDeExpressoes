@@ -180,7 +180,7 @@ public class TelaConversor extends JFrame {
 		
 		String expValue = pos.infixaParaPosfixa(s) + ".";
 		s = expValue.toCharArray();
-        tfResult.setText(" " + pos.valor(s));
+		validarResultado(s);
 
 		String expInfixaParaPre = "." + exp;
 		s = expInfixaParaPre.toCharArray();
@@ -192,7 +192,7 @@ public class TelaConversor extends JFrame {
 		
 		String expValue = exp + ".";
 		char[] s = expValue.toCharArray();
-        tfResult.setText(" " + pos.valor(s));
+		validarResultado(s);
 		
 		String expPosfixa = "." + exp;
 		s = expPosfixa.toCharArray();
@@ -217,8 +217,19 @@ public class TelaConversor extends JFrame {
 		
 		String expValue = pos.infixaParaPosfixa(s) + ".";
 		s = expValue.toCharArray();
-        tfResult.setText(" " + pos.valor(s));
+		validarResultado(s);
 
+	}
+
+	private void validarResultado(char[] exp) {
+		
+		try {
+			int i = Integer.parseInt(exp[0]+"");
+			tfResult.setText(" " + pos.valor(exp));
+		}catch (Exception e) {
+			
+		}
+		
 	}
 
 	public boolean operador(char s) {
